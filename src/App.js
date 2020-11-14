@@ -1,24 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
 
+import { useQuery, gql } from '@apollo/client';
+
+const ALL_POKEMON = gql`
+    query pokemon($name: String!) {
+      pokemon(name: $name) {
+        id
+        name
+        message
+        status
+      }
+    }
+`
+
 function App() {
+  const {loading, error, data} = useQuery(ALL_POKEMON,
+    {
+      variables: {
+        name: "ditto"
+      }
+    }
+  )
+
+  if (loading) return <p>Loading...</p>
+  if (error) return `Error! ${error}`
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h2>{data.pokemon.name}</h2>
+    </>
   );
 }
 
