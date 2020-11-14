@@ -1,0 +1,51 @@
+.card-layout{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid black;
+    box-shadow: -5px 5px 0px 0px black;
+    height: 110px;
+}
+
+.card-layout:hover {
+    cursor: pointer;
+}
+
+.card-layout:hover img{
+    margin-top: -10px;
+    animation: pokemove 0.75s infinite;
+}
+
+.card-desc{
+    width: 200px;
+    text-align: left;
+}
+
+@keyframes pokemove {
+    0% {margin-top: 0px;}
+    25% {margin-top: -7px;}
+    50% {margin-top: 0px;}
+    75% {margin-top: 7px;}
+    100% {margin-top: 0px;}
+}
+
+@media (max-width: 500px) {
+    .card-layout{
+        width: 90%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (min-width: 501px) and (max-width: 768px) {
+    .card-layout{
+        width: 350px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (min-width: 769px) {
+    .card-layout{
+        width: 400px;
+        margin-bottom: 20px;
+    }
+}
