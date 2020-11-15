@@ -12,10 +12,11 @@ import {
 import { createHttpLink } from 'apollo-link-http';
 
 const link = createHttpLink({ uri: 'https://graphql-pokeapi.vercel.app/api/graphql' });
+const cache = new InMemoryCache()
 
 const client = new ApolloClient({
-  cache: new InMemoryCache(),
-  link: link
+  cache,
+  link
 })
 
 ReactDOM.render(

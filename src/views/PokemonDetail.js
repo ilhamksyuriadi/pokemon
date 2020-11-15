@@ -1,9 +1,24 @@
-import React from 'react'
+import React from 'react';
+import { useQuery } from '@apollo/client';
+import { GET_POKEMON_DETAIL } from '../operations/queries/getPokemon';
+import { useParams } from 'react-router-dom';
+import './PokemonDetail.css';
 
-export default function PokemonDetail() {
-    return (
-        <div>
-            <h1>Pokemon Detail</h1>
-        </div>
-    )
+const PokemonDetail = (props) => {
+    const { name } = useParams();
+    const variables = { name }
+    const {loading, error, data} = useQuery(GET_POKEMON_DETAIL, { variables })
+
+    if (loading) return <p>Poketmon Detail Loading...</p>
+    if (error) return <p>Somethings wrong...</p>
+    if (data) {
+        return (
+            <div className="detail-layout">
+                <h1>Pokemon Detail</h1>
+                <p>{data.pokemon.name}</p>
+            </div>
+        )
+    }
 }
+
+export default PokemonDetail;
