@@ -5,7 +5,7 @@ import CardList from '../components/CardList';
 import './PokemonList.css';
 
 const PokemonList = () => {
-    const variables = { limit: 35, offset: 0 }
+    const variables = { limit: 8, offset: 0 }
     const {loading, error, data} = useQuery(GET_POKEMON_LIST, { variables })
 
     if (loading) return <p>Poketmon List Loading...</p>

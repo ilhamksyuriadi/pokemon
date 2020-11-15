@@ -4,7 +4,7 @@ import { GET_POKEMON_DETAIL } from '../operations/queries/getPokemon';
 import { useParams } from 'react-router-dom';
 import './PokemonDetail.css';
 
-const PokemonDetail = () => {
+const PokemonDetail = (props) => {
     const { name } = useParams();
     const variables = { name }
     const {loading, error, data} = useQuery(GET_POKEMON_DETAIL, { variables })
@@ -13,7 +13,7 @@ const PokemonDetail = () => {
     if (error) return <p>Somethings wrong...</p>
     if (data) {
         return (
-            <div>
+            <div className="detail-layout">
                 <h1>Pokemon Detail</h1>
                 <p>{data.pokemon.name}</p>
             </div>
