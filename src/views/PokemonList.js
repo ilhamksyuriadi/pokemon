@@ -9,7 +9,7 @@ const PokemonList = () => {
     const {loading, error, data} = useQuery(GET_POKEMON_LIST, { variables })
 
     if (loading) return <p>Poketmon List Loading...</p>
-    if (error) return `Pokemon List Error! ${error}`
+    if (error) return <p>Somethings wrong...</p>
     if (data) {
         const pokemons = data.pokemons.results.map(({name, image}) => (
             <CardList 
