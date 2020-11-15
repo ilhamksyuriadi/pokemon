@@ -4,7 +4,7 @@ import './CardList.css'
 const CardList = (props) => {
     return (
         <div className="card-layout">
-            <img src={props.image} />
+            <img src={props.image} alt='pokemon' />
             <div className="card-desc">
                 <p>Name: {props.name}</p>
                 <p>Owned: 0</p>
