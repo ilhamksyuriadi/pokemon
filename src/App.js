@@ -3,6 +3,7 @@ import PokemonList from './views/PokemonList';
 import MyPokemon from './views/MyPokemon';
 import PokemonDetail from './views/PokemonDetail';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,17 +15,20 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        <Switch>
-          <Route exact={true} path="/mypokemon">
-            <MyPokemon />
-          </Route>
-          <Route exact={true} path="/pokemon/:name">
-            <PokemonDetail />
-          </Route>
-          <Route exact={true} path="/">
-            <PokemonList />
-          </Route>
-        </Switch>
+        <div className="page-container">
+          <Switch className="page">
+            <Route exact={true} path="/mypokemon">
+              <MyPokemon />
+            </Route>
+            <Route exact={true} path="/pokemon/:name">
+              <PokemonDetail />
+            </Route>
+            <Route exact={true} path="/">
+              <PokemonList />
+            </Route>
+          </Switch>
+        </div>
+        <Footer />
       </div>
     </Router>
   );
