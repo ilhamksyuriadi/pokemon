@@ -6,7 +6,7 @@ import './PokemonDetail.css';
 import Loading from '../components/Loading';
 import Error from '../components/Error';
 import PokeBall from '../assets/pokeball.png';
-import createPokemon from '../operations/mutations/addPokemon';
+import SuccessForm from '../components/SuccessForm';
 
 const PokemonDetail = () => {
     const { name } = useParams();
@@ -19,26 +19,24 @@ const PokemonDetail = () => {
     }
 
     const handleCatch = () => {
-        console.log('catch clicked')
         setCatchState('catching')
         const chance = getCatchChance()
         if (chance >= 1) {
             setTimeout(()=>{
-                console.log('success', chance)
                 setCatchState('success')
-                createPokemon(data.pokemon)
-            },5000)
+            },1000)
         } else {
             setTimeout(()=>{
-                console.log('fail', chance)
                 setCatchState('fail')
-            },5000)
+            },1000)
         }
-        console.log(catchState)
     }
 
     if (loading) return <Loading msg='getting pokemon detail...' />
     if (error) return <Error />
+    if (catchState === 'success') {
+        return (<SuccessForm pokemon={data.pokemon} />)
+    }
     if (data) {
         const pokemon = data.pokemon;
         const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`
@@ -56,7 +54,7 @@ const PokemonDetail = () => {
         const pokemonAbilities = listAbilities.join(', ')
         const pokemonMoves = listMoves.join(', ')
         return (
-            <> 
+            <>
                 <h2>Pokemon Detail</h2>
                 <div className="detail-layout">
                     <div className="profile-box">

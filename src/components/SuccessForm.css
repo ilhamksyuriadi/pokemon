@@ -1,0 +1,10 @@
+.form-layout{
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.red-text{
+    color: red;
+}

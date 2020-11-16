@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { myPokemon } from '../cache';
+import getMyPokemon from '../operations/queries/getMyPokemon';
 
 const MyPokemon = () => {
 
     useEffect(()=>{
-        console.log('mypokemon', myPokemon())
+        console.log('mypokemon', getMyPokemon())
     },[])
 
     return (
