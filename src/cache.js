@@ -1,7 +1,13 @@
 import { makeVar } from '@apollo/client';
 import { InMemoryCache } from '@apollo/client';
 
-export const myPokemon = makeVar([]);
+const currentPokemons = JSON.parse(localStorage.getItem('myPokemon'))
+export let myPokemon
+if (currentPokemons) {
+    myPokemon = makeVar(currentPokemons);
+} else {
+    myPokemon = makeVar([]);
+}
 
 export const cache = new InMemoryCache()
 
