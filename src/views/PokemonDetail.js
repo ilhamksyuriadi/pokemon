@@ -29,7 +29,6 @@ const PokemonDetail = () => {
         const listMoves = pokemon.moves.map((pokemon) => {
             return pokemon.move.name
         })
-        const pokemonTypes = listTypes.join(', ')
         const pokemonAbilities = listAbilities.join(', ')
         const pokemonMoves = listMoves.join(', ')
         return (
@@ -50,12 +49,16 @@ const PokemonDetail = () => {
                     </div>
                     <div className="description-box">
                         <div className="abilities-box">
-                            <h4>Abilities</h4>
-                            <p>{pokemonAbilities}</p>
+                            <h4>Abilities:</h4>
+                            <div className="p-wrapper">
+                                <p>{pokemonAbilities}</p>
+                            </div>
                         </div>
                         <div className="moves-box">
-                            <h4>Moves</h4>
-                            <p>{pokemonMoves}</p>
+                            <h4>Available Moves:</h4>
+                            <div className="p-wrapper">
+                                <p>{pokemonMoves}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
