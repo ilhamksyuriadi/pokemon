@@ -6,13 +6,12 @@ import reportWebVitals from './reportWebVitals';
 
 import {
   ApolloClient,
-  ApolloProvider,
-  InMemoryCache
+  ApolloProvider
 } from '@apollo/client';
 import { createHttpLink } from 'apollo-link-http';
+import { cache } from './cache';
 
 const link = createHttpLink({ uri: 'https://graphql-pokeapi.vercel.app/api/graphql' });
-const cache = new InMemoryCache()
 
 const client = new ApolloClient({
   cache,
