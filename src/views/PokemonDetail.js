@@ -3,6 +3,8 @@ import { useQuery } from '@apollo/client';
 import { GET_POKEMON_DETAIL } from '../operations/queries/getPokemon';
 import { useParams } from 'react-router-dom';
 import './PokemonDetail.css';
+import Loading from '../components/Loading';
+import Error from '../components/Error';
 
 const PokemonDetail = () => {
     const { name } = useParams();
@@ -13,8 +15,8 @@ const PokemonDetail = () => {
         console.log('catch clicked')
     }
 
-    if (loading) return <p>Poketmon Detail Loading...</p>
-    if (error) return <p>Somethings wrong...</p>
+    if (loading) return <Loading msg='getting pokemon detail...' />
+    if (error) return <Error />
     if (data) {
         const pokemon = data.pokemon;
         const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`
