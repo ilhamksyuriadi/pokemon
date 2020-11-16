@@ -7,3 +7,7 @@ html,body{
   text-align: center;
   font-family: 'Sigmar One', cursive;
 }
+
+.page-container{
+  min-height: 400px;
+}
