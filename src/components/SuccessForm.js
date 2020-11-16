@@ -29,13 +29,13 @@ const SuccessForm = (props) => {
             nickname: e.target.nickname.value,
             name: props.pokemon.name,
         }
-        console.log(checkNicname(nickname))
-        if(!checkNicname(nickname)){
-            setExistState(true)
-        }else{
+        
+        if(checkNicname(nickname) && nickname){
             createPokemon(newPokemon)
             setExistState(false)
             history.push('/mypokemon')
+        }else{
+            setExistState(true)
         }
     }
 
@@ -45,13 +45,13 @@ const SuccessForm = (props) => {
                 <h3>Gotcha! {props.pokemon.name} catched</h3>
                 <img src={imageUrl} alt="pokemon" />
                 <p>Give a nickname:</p>
-                <form onSubmit={handleSubmit}>
+                <form autoComplete="off" onSubmit={handleSubmit}>
                     <input type="text" name="nickname"></input>
                     <input type="submit" value="ok"></input>
                 </form>
                 {
                     existState
-                    ? <code className="red-text">nicname already exist</code>
+                    ? <code className="red-text">nickname already exist and field can't be empty</code>
                     : <span></span>
                 }
             </div>
