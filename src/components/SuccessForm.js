@@ -2,14 +2,11 @@ import React, { useState } from 'react';
 import './SuccessForm.css';
 import createPokemon from '../operations/mutations/addPokemon';
 import getMyPokemon from '../operations/queries/getMyPokemon';
+import { useHistory } from 'react-router-dom';
 
 const SuccessForm = (props) => {
     const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${props.pokemon.id}.png`
-    
-    // useEffect(() => {
-    //     console.log(props.pokemon)
-    // },[])
-
+    const history = useHistory()
     const [ existState, setExistState ] = useState(false)
 
     const checkNicname = (nickname) => {
@@ -38,6 +35,7 @@ const SuccessForm = (props) => {
         }else{
             createPokemon(newPokemon)
             setExistState(false)
+            history.push('/mypokemon')
         }
     }
 
