@@ -9,7 +9,7 @@ const CardList = (props) => {
                 <img src={props.image} alt='pokemon' />
                 <div className="card-desc">
                     <p>Name: {props.name}</p>
-                    <p>Owned: 0</p>
+                    <p>Owned: {props.owned}</p>
                 </div>
             </div>
         </Link>

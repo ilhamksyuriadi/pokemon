@@ -11,11 +11,12 @@ const PokemonList = () => {
     if (loading) return <p>Poketmon List Loading...</p>
     if (error) return <p>Somethings wrong...</p>
     if (data) {
-        const pokemons = data.pokemons.results.map(({name, image}) => (
+        const pokemons = data.pokemons.results.map(({name, image, owned}) => (
             <CardList 
                 key={name}
                 name={name}
                 image={image}
+                owned={1}
             />
         ))
         return (
