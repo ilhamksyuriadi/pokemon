@@ -6,16 +6,13 @@ import './PokemonDetail.css';
 import Loading from '../components/Loading';
 import Error from '../components/Error';
 import PokeBall from '../assets/pokeball.png';
+import createPokemon from '../operations/mutations/addPokemon';
 
 const PokemonDetail = () => {
     const { name } = useParams();
     const variables = { name }
     const { loading, error, data } = useQuery(GET_POKEMON_DETAIL, { variables });
     const [ catchState, setCatchState ] = useState('standby')
-
-    // useEffect(()=>{
-    //     console.log('useffect')
-    // },[catchState])
 
     const getCatchChance = () => {
         return Math.floor(Math.random() * 2);
@@ -29,6 +26,7 @@ const PokemonDetail = () => {
             setTimeout(()=>{
                 console.log('success', chance)
                 setCatchState('success')
+                createPokemon(data.pokemon)
             },5000)
         } else {
             setTimeout(()=>{
@@ -59,7 +57,6 @@ const PokemonDetail = () => {
         const pokemonMoves = listMoves.join(', ')
         return (
             <> 
-                <h1>test</h1>
                 <h2>Pokemon Detail</h2>
                 <div className="detail-layout">
                     <div className="profile-box">
