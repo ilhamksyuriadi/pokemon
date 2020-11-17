@@ -14,22 +14,12 @@ const PokemonList = () => {
     if (loading) return <Loading msg='getting pokemon list...' />
     if (error) return <Error />
     if (data) {
-        // const pokemons = data.pokemons.results.map(({name, image, owned}) => (
-        //     <CardList 
-        //         key={name}
-        //         name={name}
-        //         image={image}
-        //         owned={1}
-        //     />
-        // ))
         const pokemonList = data.pokemons.results.map((pokemon) => {
             let ownedPokemon = getMyPokemon().filter(({name}) => {
                 return pokemon.name === name
             })
             return Object.assign({...pokemon}, {owned: ownedPokemon.length})
         })
-
-        console.log(pokemonList)
 
         const pokemons = pokemonList.map(({name, image, owned}) => (
             <CardList 

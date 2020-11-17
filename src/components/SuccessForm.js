@@ -51,7 +51,7 @@ const SuccessForm = (props) => {
                 </form>
                 {
                     existState
-                    ? <code className="red-text">nickname already exist and field can't be empty</code>
+                    ? <code className="red-text">nickname already exist or the field still empty</code>
                     : <span></span>
                 }
             </div>
