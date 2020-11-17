@@ -1,18 +1,69 @@
-.list-layout{
+.list-layout-pokemont-list{
     width: 100vw;
     max-width: 100%;
+    min-height: 400px;
     display: flex;
 }
 
+.title-pokemont-list{
+    margin: 0 0 30px;
+}
+
+.button-page{
+    font-family: 'Sigmar One', cursive;
+    border: none;
+    background: black;
+    color: white;
+    outline: none;
+    box-shadow: -2px 2px 0px 0px black;
+    border: 1px solid white;
+    transition: 0.3s;
+}
+
+.button-page:hover{
+    background: white;
+    color: black;
+    border: 1px solid black;
+    box-shadow: -2px 2px 0px 0px black;
+    cursor: pointer;
+}
+
+.page-control-layout{
+    width: 100vw;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.red-text{
+    color: red;
+}
+
+.page-control-box{
+    height: 100px;
+    width: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.button-box{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
 @media (max-width: 500px) {
-    .list-layout{
+    .list-layout-pokemont-list{
         flex-direction: column;
         align-items: center;
+        min-height: 400px;
     }
 }
 
 @media (min-width: 501px) {
-    .list-layout{
+    .list-layout-pokemont-list{
         justify-content: space-around;
         align-items: center;
         flex-wrap: wrap;

@@ -7,7 +7,7 @@ const Footer = () => {
         <footer>
             <div>
                 <img className="game-freak-logo" src={GameFreakLogo} alt="logo"></img>
-                <p>game freak</p>
+                <p>ilhamksyuriadi &#169;2020</p>
             </div>
         </footer>
     )

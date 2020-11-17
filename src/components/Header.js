@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 const Header = () => {
     return (
         <header>
-            <h1>Pocket Monster</h1>
+            <h1>Pokemon App</h1>
             <nav>
                 <NavLink activeClassName="nav-active" to="/">
                     <h3 className="nav-item">Pokemon List</h3>
