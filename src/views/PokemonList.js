@@ -1,4 +1,4 @@
-import Reactm, { useState } from 'react';
+import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_POKEMON_LIST } from '../operations/queries/getPokemonList';
 import CardList from '../components/CardList';
@@ -13,7 +13,12 @@ const PokemonList = () => {
     const {loading, error, data} = useQuery(GET_POKEMON_LIST, { variables })
 
     const handleMore = () => {
-        console.log('testtt')
+        setLimitState(limitState + 3)
+        console.log('state:',limitState)
+    }
+    const handleLess = () => {
+        setLimitState(limitState - 3)
+        console.log('state:',limitState)
     }
 
     if (loading) return <Loading msg='getting pokemon list...' />
@@ -42,7 +47,8 @@ const PokemonList = () => {
                     <div className="list-layout-pokemont-list">
                         {pokemons}
                     </div>
-                    <button onClick={handleMore} className="button-more">More</button>
+                    <button onClick={handleLess} className="button-page">Less</button>
+                    <button onClick={handleMore} className="button-page">More</button>
                 </div>
             </>
         )

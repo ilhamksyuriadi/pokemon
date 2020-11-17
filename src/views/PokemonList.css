@@ -9,7 +9,7 @@
     margin: 0 0 30px;
 }
 
-.button-more{
+.button-page{
     font-family: 'Sigmar One', cursive;
     border: none;
     background: black;
@@ -21,7 +21,7 @@
     margin: 36px 0;
 }
 
-.button-more:hover{
+.button-page:hover{
     background: white;
     color: black;
     border: 1px solid black;
