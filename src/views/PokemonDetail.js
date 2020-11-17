@@ -7,6 +7,7 @@ import Loading from '../components/Loading';
 import Error from '../components/Error';
 import PokeBall from '../assets/pokeball.png';
 import SuccessForm from '../components/SuccessForm';
+import getMyPokemon from '../operations/queries/getMyPokemon';
 
 const PokemonDetail = () => {
     const { name } = useParams();
@@ -51,6 +52,9 @@ const PokemonDetail = () => {
         const listMoves = pokemon.moves.map((pokemon) => {
             return pokemon.move.name
         })
+        const owned = getMyPokemon().filter((myPokemon) => {
+            return myPokemon.name === pokemon.name
+        })
         const pokemonAbilities = listAbilities.join(', ')
         const pokemonMoves = listMoves.join(', ')
         return (
@@ -64,7 +68,7 @@ const PokemonDetail = () => {
                         <h3 className="pokemon-text">{pokemon.name}</h3>
                         <h4 className="pokemon-text">pokemon id: {pokemon.id}</h4>
                         <h4 className="pokemon-text">type:  {listTypes}</h4>
-                        <h4 className="pokemon-text">owned: 0</h4>
+                        <h4 className="pokemon-text">owned: {owned.length}</h4>
                         <div className={`catch-wrapper wrapper-${catchState}`}>
                             <code>{catchState}</code>
                             <div className="box-wrapper">

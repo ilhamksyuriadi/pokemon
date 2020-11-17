@@ -5,6 +5,34 @@
     align-items: center;
 }
 
+.content{
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form{
+    background: red;
+    display: flex;
+    justify-content: space-around;
+}
+
+input[type='submit']{
+    border: 1px solid black;
+    outline: none;
+    font-family: 'Sigmar One', cursive;
+    background: black;
+    color: white;
+    width: 70px;
+}
+
+input[type='submit']:hover{
+    background: rgb(63, 61, 61);
+    color: rgb(236, 236, 236);
+    cursor: pointer;
+}
+
 .red-text{
     color: red;
 }

@@ -10,9 +10,9 @@ const CardList = (props) => {
                 <div className="card-desc">
                     <p>Name: {props.name}</p>
                     {
-                        props.owned
-                        ? <p>Owned: {props.owned}</p>
-                        : <p>Nickname: {props.nickname}</p>
+                        props.nickname
+                        ? <p>Nickname: {props.nickname}</p>
+                        : <p>Owned: {props.owned}</p>
                     }
                 </div>
             </div>
