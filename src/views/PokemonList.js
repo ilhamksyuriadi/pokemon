@@ -1,4 +1,4 @@
-import React from 'react';
+import Reactm, { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_POKEMON_LIST } from '../operations/queries/getPokemonList';
 import CardList from '../components/CardList';
@@ -8,8 +8,13 @@ import Error from '../components/Error';
 import getMyPokemon from '../operations/queries/getMyPokemon';
 
 const PokemonList = () => {
-    const variables = { limit: 10, offset: 0 }
+    const [limitState, setLimitState] = useState(8)
+    const variables = { limit: limitState, offset: 0 }
     const {loading, error, data} = useQuery(GET_POKEMON_LIST, { variables })
+
+    const handleMore = () => {
+        console.log('testtt')
+    }
 
     if (loading) return <Loading msg='getting pokemon list...' />
     if (error) return <Error />
@@ -32,9 +37,12 @@ const PokemonList = () => {
 
         return (
             <>
-                <h2 className="title">Wild Pokemon List</h2>
-                <div className="list-layout">
-                    {pokemons}
+                <h2 className="title-pokemont-list">Wild Pokemon List</h2>
+                <div>
+                    <div className="list-layout-pokemont-list">
+                        {pokemons}
+                    </div>
+                    <button onClick={handleMore} className="button-more">More</button>
                 </div>
             </>
         )
