@@ -4,6 +4,11 @@ import CardList from '../components/CardList';
 
 const MyPokemon = () => {
 
+    const handleRelease = (e) => {
+        e.stopPropagation()
+        console.log('release button clicked')
+    }
+
     const pokemons = getMyPokemon().map(({id, name, nickname}) => {
         const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
         return (
@@ -12,6 +17,7 @@ const MyPokemon = () => {
                 name={name}
                 image={imageUrl}
                 nickname={nickname}
+                onRelease={handleRelease}
             />
         )
     })

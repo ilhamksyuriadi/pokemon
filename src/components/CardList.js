@@ -1,11 +1,16 @@
 import React from 'react';
 import './CardList.css';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const CardList = (props) => {
+    const history = useHistory()
+
+    const handleClick = () => {
+        history.push(`/pokemon/${props.name}`)
+    }
+
     return (
-        <Link to={`/pokemon/${props.name}`}>
-            <div className="card-layout">
+            <div onClick={handleClick} className="card-layout">
                 <img src={props.image} alt='pokemon' />
                 <div className="card-desc">
                     <p>Name: {props.name}</p>
@@ -16,12 +21,11 @@ const CardList = (props) => {
                     }
                     {
                         props.nickname
-                        ? <button className="release-button">Release</button>
+                        ? <button onClick={props.onRelease} className="release-button">Release</button>
                         : <span />
                     }
                 </div>
             </div>
-        </Link>
     )
 }
 
