@@ -9,6 +9,7 @@ import getMyPokemon from '../operations/queries/getMyPokemon';
 
 const PokemonList = () => {
     const [limitState, setLimitState] = useState(8)
+    const [lessWarningState, setLessWarningState] = useState(false)
     const variables = { limit: limitState, offset: 0 }
     const {loading, error, data} = useQuery(GET_POKEMON_LIST, { variables })
 
@@ -17,8 +18,14 @@ const PokemonList = () => {
         console.log('state:',limitState)
     }
     const handleLess = () => {
-        setLimitState(limitState - 3)
-        console.log('state:',limitState)
+        if (limitState - 3 <= 0) {
+            setLessWarningState(true)
+            setTimeout(()=>{
+                setLessWarningState(false)
+            },2000)
+        } else {
+            setLimitState(limitState - 3)
+        }
     }
 
     if (loading) return <Loading msg='getting pokemon list...' />
@@ -47,8 +54,19 @@ const PokemonList = () => {
                     <div className="list-layout-pokemont-list">
                         {pokemons}
                     </div>
-                    <button onClick={handleLess} className="button-page">Less</button>
-                    <button onClick={handleMore} className="button-page">More</button>
+                    <div className="page-control-layout">
+                        <div className="page-control-box">
+                            {
+                                lessWarningState
+                                ? <code className="red-text">smallest already!</code>
+                                : <span />
+                            }
+                            <div className="button-box">
+                                <button onClick={handleLess} className="button-page">Less</button>
+                                <button onClick={handleMore} className="button-page">More</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </>
         )
