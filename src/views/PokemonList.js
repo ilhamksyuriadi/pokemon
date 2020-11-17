@@ -6,16 +6,17 @@ import './PokemonList.css';
 import Loading from '../components/Loading';
 import Error from '../components/Error';
 import getMyPokemon from '../operations/queries/getMyPokemon';
+import { getLoadPokemon, loadMorePokemon, loadLessPokemon } from '../operations/load';
 
 const PokemonList = () => {
-    const [limitState, setLimitState] = useState(8)
+    const [limitState, setLimitState] = useState(getLoadPokemon())
     const [lessWarningState, setLessWarningState] = useState(false)
-    const variables = { limit: limitState, offset: 0 }
+    const variables = { limit: getLoadPokemon(), offset: 0 }
     const {loading, error, data} = useQuery(GET_POKEMON_LIST, { variables })
 
     const handleMore = () => {
-        setLimitState(limitState + 3)
-        console.log('state:',limitState)
+        loadMorePokemon()
+        setLimitState(getLoadPokemon())
     }
     const handleLess = () => {
         if (limitState - 3 <= 0) {
@@ -24,7 +25,8 @@ const PokemonList = () => {
                 setLessWarningState(false)
             },2000)
         } else {
-            setLimitState(limitState - 3)
+            loadLessPokemon()
+            setLimitState(getLoadPokemon())
         }
     }
 
