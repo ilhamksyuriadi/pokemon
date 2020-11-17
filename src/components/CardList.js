@@ -14,6 +14,11 @@ const CardList = (props) => {
                         ? <p>Nickname: {props.nickname}</p>
                         : <p>Owned: {props.owned}</p>
                     }
+                    {
+                        props.nickname
+                        ? <button className="release-button">Release</button>
+                        : <span />
+                    }
                 </div>
             </div>
         </Link>

@@ -26,6 +26,23 @@ a{
     text-align: left;
 }
 
+.card-desc p {
+    margin: 0;
+}
+
+.release-button{
+    border: none;
+    font-family: 'Sigmar One', cursive;
+    color: white;
+    background: rgb(184, 54, 54);
+    transition: 0.2s;
+}
+
+.release-button:hover{
+    cursor: pointer;
+    background: rgb(226, 96, 96);
+}
+
 @keyframes pokemove {
     0% {margin-top: 0px;}
     25% {margin-top: -7px;}
@@ -52,5 +69,9 @@ a{
     .card-layout{
         width: 400px;
         margin-bottom: 20px;
+    }
+
+    .card-desc{
+        width: 220px;
     }
 }
