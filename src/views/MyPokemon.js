@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import getMyPokemon from '../operations/queries/getMyPokemon';
 import CardList from '../components/CardList';
 import releasePokemon from '../operations/mutations/deletePokemon';
@@ -6,10 +6,6 @@ import Empty from '../components/Empty';
 
 const MyPokemon = () => {
     const [pokemonsState, setPokemonsState] = useState(getMyPokemon())
-
-    useEffect(() => {
-        console.log(pokemonsState.length)
-    },[])
 
     const handleRelease = (e, nickname) => {
         e.stopPropagation()
@@ -32,7 +28,7 @@ const MyPokemon = () => {
             )
         })
         return (
-            <div className="list-layout">
+            <div className="list-layout" style={{'min-height': '400px'}}>
                 {pokemons}
             </div>
         )
