@@ -3,6 +3,7 @@ import PokemonList from './views/PokemonList';
 import MyPokemon from './views/MyPokemon';
 import PokemonDetail from './views/PokemonDetail';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import {
   BrowserRouter as Router,
   Switch,
@@ -25,6 +26,7 @@ function App() {
             <PokemonList />
           </Route>
         </Switch>
+        <Footer />
       </div>
     </Router>
   );
