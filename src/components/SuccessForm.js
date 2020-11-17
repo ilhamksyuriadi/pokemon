@@ -29,7 +29,7 @@ const SuccessForm = (props) => {
             nickname: e.target.nickname.value,
             name: props.pokemon.name,
         }
-        
+
         if(checkNicname(nickname) && nickname){
             createPokemon(newPokemon)
             setExistState(false)
@@ -41,13 +41,13 @@ const SuccessForm = (props) => {
 
     return (
         <div className="form-layout">
-            <div>
+            <div className="content">
                 <h3>Gotcha! {props.pokemon.name} catched</h3>
                 <img src={imageUrl} alt="pokemon" />
                 <p>Give a nickname:</p>
                 <form autoComplete="off" onSubmit={handleSubmit}>
                     <input type="text" name="nickname"></input>
-                    <input type="submit" value="ok"></input>
+                    <input className="submit-button" type="submit" value="ok"></input>
                 </form>
                 {
                     existState

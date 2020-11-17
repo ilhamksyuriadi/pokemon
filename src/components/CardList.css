@@ -36,7 +36,7 @@ a{
 
 @media (max-width: 500px) {
     .card-layout{
-        width: 90%;
+        width: 99%;
         margin-bottom: 20px;
     }
 }
