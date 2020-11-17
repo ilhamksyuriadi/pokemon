@@ -21,7 +21,7 @@ const CardList = (props) => {
                     }
                     {
                         props.nickname
-                        ? <button onClick={props.onRelease} className="release-button">Release</button>
+                        ? <button onClick={(event)=>props.onRelease(event, props.nickname)} className="release-button">Release</button>
                         : <span />
                     }
                 </div>
