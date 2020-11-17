@@ -16,13 +16,13 @@ function App() {
       <div className="App">
         <Header />
         <Switch>
-          <Route exact={true} path="/mypokemon">
+          <Route exact path="/mypokemon">
             <MyPokemon />
           </Route>
-          <Route exact={true} path="/pokemon/:name">
+          <Route exact path="/pokemon/:name">
             <PokemonDetail />
           </Route>
-          <Route exact={true} path="/">
+          <Route exact path="/">
             <PokemonList />
           </Route>
         </Switch>

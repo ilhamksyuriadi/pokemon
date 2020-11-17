@@ -24,10 +24,10 @@ nav a{
     height: 30px;
 }
 
-/* .nav-active{
+.nav-active{
     background: black;
     color: white;
-} */
+}
 
 .nav-item{
     transition: 1s;
