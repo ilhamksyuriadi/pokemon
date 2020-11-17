@@ -15,19 +15,17 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        <div className="page-container">
-          <Switch className="page">
-            <Route exact={true} path="/mypokemon">
-              <MyPokemon />
-            </Route>
-            <Route exact={true} path="/pokemon/:name">
-              <PokemonDetail />
-            </Route>
-            <Route exact={true} path="/">
-              <PokemonList />
-            </Route>
-          </Switch>
-        </div>
+        <Switch>
+          <Route exact={true} path="/mypokemon">
+            <MyPokemon />
+          </Route>
+          <Route exact={true} path="/pokemon/:name">
+            <PokemonDetail />
+          </Route>
+          <Route exact={true} path="/">
+            <PokemonList />
+          </Route>
+        </Switch>
         <Footer />
       </div>
     </Router>
