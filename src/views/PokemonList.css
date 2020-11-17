@@ -1,7 +1,12 @@
 .list-layout{
     width: 100vw;
     max-width: 100%;
+    min-height: 400px;
     display: flex;
+}
+
+.title{
+    margin: 0;
 }
 
 @media (max-width: 500px) {

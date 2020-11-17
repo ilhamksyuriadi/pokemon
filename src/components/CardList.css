@@ -9,7 +9,7 @@
     align-items: center;
     border: 1px solid black;
     box-shadow: -5px 5px 0px 0px black;
-    height: 110px;
+    min-height: 120px;
 }
 
 .card-layout:hover {

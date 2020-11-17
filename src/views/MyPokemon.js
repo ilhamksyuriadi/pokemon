@@ -3,6 +3,7 @@ import getMyPokemon from '../operations/queries/getMyPokemon';
 import CardList from '../components/CardList';
 import releasePokemon from '../operations/mutations/deletePokemon';
 import Empty from '../components/Empty';
+import './MyPokemon.css';
 
 const MyPokemon = () => {
     const [pokemonsState, setPokemonsState] = useState(getMyPokemon())
@@ -13,7 +14,13 @@ const MyPokemon = () => {
         setPokemonsState(getMyPokemon())
     }
 
-    if (!pokemonsState.length) return <Empty />
+    if (!pokemonsState.length) return (
+        <>
+            <h2 className="title">Catched Pokemon List</h2>
+            <code>Total: {pokemonsState.length}</code>
+            <Empty />
+        </>
+    )
     if (pokemonsState) {
         const pokemons = pokemonsState.map(({id, name, nickname}) => {
             const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
@@ -28,9 +35,13 @@ const MyPokemon = () => {
             )
         })
         return (
-            <div className="list-layout" style={{'min-height': '400px'}}>
-                {pokemons}
-            </div>
+            <>
+                <h2 className="title">Catched Pokemon List</h2>
+                <code>Total: {pokemonsState.length}</code>
+                <div className="list-layout">
+                    {pokemons}
+                </div>
+            </>
         )
     }
 }

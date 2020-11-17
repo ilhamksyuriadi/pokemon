@@ -8,7 +8,7 @@ import Error from '../components/Error';
 import getMyPokemon from '../operations/queries/getMyPokemon';
 
 const PokemonList = () => {
-    const variables = { limit: 8, offset: 0 }
+    const variables = { limit: 10, offset: 0 }
     const {loading, error, data} = useQuery(GET_POKEMON_LIST, { variables })
 
     if (loading) return <Loading msg='getting pokemon list...' />
@@ -31,9 +31,12 @@ const PokemonList = () => {
         ))
 
         return (
-            <div className="list-layout">
-                {pokemons}
-            </div>
+            <>
+                <h2 className="title">Wild Pokemon List</h2>
+                <div className="list-layout">
+                    {pokemons}
+                </div>
+            </>
         )
     }
 }
