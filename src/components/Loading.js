@@ -4,7 +4,7 @@ import PidgeyFront from '../assets/pidgey-front.png';
 
 const Loading = (props) => {
     return (
-        <div className="loading-layout">
+        <div data-testid="loading" className="loading-layout">
             <div>
                 <img src={PidgeyFront} alt="pidgey"></img>
                 <h4>{props.msg}</h4>
