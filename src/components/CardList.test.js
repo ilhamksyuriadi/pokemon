@@ -1,6 +1,5 @@
 import CardList from './CardList';
 import { render, unmountComponentAtNode } from 'react-dom';
-import renderer from  'react-test-renderer';
 import { act } from "react-dom/test-utils";
 
 let container = null;
@@ -17,11 +16,6 @@ afterEach(() => {
     container = null;
 });
 
-it("unit - card list, snapshot", () => {
-    const tree = renderer.create(<CardList />).toJSON();
-    expect(tree).toMatchSnapshot();
-})
-
 it("unit - card list, with nickname props or with owned props", () => {
     act(() => {
         render(<CardList owned={7}/>, container)
@@ -29,7 +23,17 @@ it("unit - card list, with nickname props or with owned props", () => {
     expect(container).toHaveTextContent('7')
 
     act(() => {
+        render(<CardList owned={7}/>, container)
+    })
+    expect(container).toMatchSnapshot()
+
+    act(() => {
         render(<CardList nickname={'pidgey'}/>, container)
     })
     expect(container).toHaveTextContent('pidgey')
+
+    act(() => {
+        render(<CardList nickname={'pidgey'}/>, container)
+    })
+    expect(container).toMatchSnapshot()
 })
