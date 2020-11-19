@@ -1,11 +1,10 @@
-import PokemonDetail from './PokemonDetail';
+import App from './App';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from "react-dom/test-utils";
 import { MockedProvider } from '@apollo/client/testing';
-import { mockPokemonDetail } from '../mocksQuery';
-import { BrowserRouter as Router } from "react-router-dom";
+import { mocksApp } from './mocksQuery';
 
-const mocks = mockPokemonDetail;
+const mocks = mocksApp;
 let container = null;
 beforeEach(() => {
     // setup a DOM element as a render target
@@ -20,13 +19,11 @@ afterEach(() => {
     container = null;
 });
 
-it("pokemon detail, snapshot", () => {
+it("full app, snapshot", () => {
     act(() => {
-        render(        
+        render(
             <MockedProvider mock={mocks}>
-                <Router>
-                    <PokemonDetail />
-                </Router>
+                <App />
             </MockedProvider>
         ,container)
     })

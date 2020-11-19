@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`full app, snapshot 1`] = `
+<div>
+  <div
+    class="App"
+  >
+    <header>
+      <h1>
+        Pokemon App
+      </h1>
+      <nav>
+        <a
+          aria-current="page"
+          class="nav-item nav-active"
+          href="/"
+        >
+          <h3>
+            Pokemon List
+          </h3>
+        </a>
+        <a
+          class="nav-item"
+          href="/mypokemon"
+        >
+          <h3>
+            My Pokemon
+          </h3>
+        </a>
+      </nav>
+    </header>
+    <div
+      class="loading-layout"
+    >
+      <div>
+        <img
+          alt="pidgey"
+          src="pidgey-front.png"
+        />
+        <h4>
+          getting pokemon list...
+        </h4>
+      </div>
+    </div>
+    <footer>
+      <div>
+        <img
+          alt="logo"
+          class="game-freak-logo"
+          src="game-freak.png"
+        />
+        <p>
+          ilhamksyuriadi ©2020
+        </p>
+      </div>
+    </footer>
+  </div>
+</div>
+`;
