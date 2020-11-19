@@ -1,10 +1,9 @@
-import App from './App';
+import Header from './Header';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from "react-dom/test-utils";
-import { MockedProvider } from '@apollo/client/testing';
-import { mocksApp } from './mocksQuery';
+// import renderer from  'react-test-renderer'
+import { BrowserRouter as Router } from "react-router-dom";
 
-const mocks = mocksApp;
 let container = null;
 beforeEach(() => {
     // setup a DOM element as a render target
@@ -19,13 +18,14 @@ afterEach(() => {
     container = null;
 });
 
-it("full app, snapshot", () => {
+
+it("header page, snapshot", () => {
     act(() => {
         render(
-            <MockedProvider mock={mocks}>
-                <App />
-            </MockedProvider>
-        ,container)
+            <Router>
+                <Header />
+            </Router>
+        , container)
     })
     expect(container).toMatchSnapshot();
 })

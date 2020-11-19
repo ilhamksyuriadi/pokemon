@@ -1,10 +1,7 @@
-import App from './App';
+import Footer from './Footer';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from "react-dom/test-utils";
-import { MockedProvider } from '@apollo/client/testing';
-import { mocksApp } from './mocksQuery';
 
-const mocks = mocksApp;
 let container = null;
 beforeEach(() => {
     // setup a DOM element as a render target
@@ -19,13 +16,9 @@ afterEach(() => {
     container = null;
 });
 
-it("full app, snapshot", () => {
+it("footer page, snapshot", () => {
     act(() => {
-        render(
-            <MockedProvider mock={mocks}>
-                <App />
-            </MockedProvider>
-        ,container)
+        render(<Footer />, container)
     })
     expect(container).toMatchSnapshot();
 })
