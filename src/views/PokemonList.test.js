@@ -51,7 +51,7 @@ afterEach(() => {
     container = null;
 });
 
-it("integration - pokemon list, snapshot", () => {
+it("pokemon list, snapshot", () => {
     act(() => {
         render(
             <MockedProvider mock={mocks}>

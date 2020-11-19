@@ -16,7 +16,7 @@ afterEach(() => {
     container = null;
 });
 
-it("unit - loading page, snapshot", () => {
+it("loading page, snapshot", () => {
     act(() => {
         render(<Loading />, container)
     })

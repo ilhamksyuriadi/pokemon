@@ -16,7 +16,7 @@ afterEach(() => {
     container = null;
 });
 
-it("unit - error page, snapshot", () => {
+it("error page, snapshot", () => {
     act(() => {
         render(<Error />, container)
     })

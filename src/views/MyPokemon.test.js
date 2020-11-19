@@ -16,7 +16,7 @@ afterEach(() => {
     container = null;
 });
 
-it("integration - my pokemon, snapshot", () => {
+it("my pokemon, snapshot", () => {
     act(() => {
         render(<MyPokemon />,container)
     })

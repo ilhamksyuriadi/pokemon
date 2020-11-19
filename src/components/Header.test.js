@@ -19,7 +19,7 @@ afterEach(() => {
 });
 
 
-it("unit - header page, snapshot", () => {
+it("header page, snapshot", () => {
     act(() => {
         render(
             <Router>

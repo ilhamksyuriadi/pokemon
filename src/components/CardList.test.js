@@ -17,7 +17,7 @@ afterEach(() => {
     container = null;
 });
 
-it ('unit - card list, with owned props', () => {
+it ('card list, with owned props', () => {
     act(() => {
         const pokemon = {
             name: 'Bulbasaur',
@@ -29,7 +29,7 @@ it ('unit - card list, with owned props', () => {
     expect(container).toMatchSnapshot()
 })
 
-it ('unit - card list, with nickname props', () => {
+it ('card list, with nickname props', () => {
     act(() => {
         const pokemon = {
             name: 'Bulbasaur',

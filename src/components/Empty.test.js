@@ -16,7 +16,7 @@ afterEach(() => {
     container = null;
 });
 
-it("unit - empty page, snapshot", () => {
+it("empty page, snapshot", () => {
     act(() => {
         render(<Empty />, container)
     })

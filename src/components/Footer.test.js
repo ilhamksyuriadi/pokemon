@@ -16,7 +16,7 @@ afterEach(() => {
     container = null;
 });
 
-it("unit - footer page, snapshot", () => {
+it("footer page, snapshot", () => {
     act(() => {
         render(<Footer />, container)
     })

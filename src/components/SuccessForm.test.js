@@ -16,7 +16,7 @@ afterEach(() => {
     container = null;
 });
 
-it("unit - success form, snapshot", () => {
+it("success form, snapshot", () => {
     act(()=> {
         const pokemon = {
             name: 'Bulbasaur',
