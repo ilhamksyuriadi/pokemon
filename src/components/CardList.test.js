@@ -1,7 +1,6 @@
 import CardList from './CardList';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from "react-dom/test-utils";
-// import { renderer, fireEvent } from "@testing-library/react";
 
 let container = null;
 beforeEach(() => {
@@ -50,15 +49,3 @@ it ('card list, with nickname props', () => {
     })
     expect(container.querySelector("button").textContent).toBe("Release")
 })
-
-// it ('unit - card list, button clicked', () => {
-//     act(() => {
-//         const pokemon = {
-//             name: 'Bulbasaur',
-//             nickname: 'bulbaaaaa',
-//             image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png'
-//         }
-//         render(<CardList name={pokemon.name} nickname={pokemon.nickname} image={pokemon.image} />, container)
-//     })
-//     expect(container).toMatchSnapshot()
-// })
