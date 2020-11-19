@@ -1,7 +1,6 @@
 import Footer from './Footer';
-import { unmountComponentAtNode } from 'react-dom';
-import renderer from  'react-test-renderer'
-
+import { render, unmountComponentAtNode } from 'react-dom';
+import { act } from "react-dom/test-utils";
 
 let container = null;
 beforeEach(() => {
@@ -17,7 +16,9 @@ afterEach(() => {
     container = null;
 });
 
-it("unit - footer, snapshot", () => {
-    const tree = renderer.create(<Footer />).toJSON();
-    expect(tree).toMatchSnapshot();
+it("unit - footer page, snapshot", () => {
+    act(() => {
+        render(<Footer />, container)
+    })
+    expect(container).toMatchSnapshot();
 })

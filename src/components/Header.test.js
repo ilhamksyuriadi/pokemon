@@ -1,6 +1,7 @@
 import Header from './Header';
-import { unmountComponentAtNode } from 'react-dom';
-import renderer from  'react-test-renderer'
+import { render, unmountComponentAtNode } from 'react-dom';
+import { act } from "react-dom/test-utils";
+// import renderer from  'react-test-renderer'
 import { BrowserRouter as Router } from "react-router-dom";
 
 let container = null;
@@ -18,11 +19,13 @@ afterEach(() => {
 });
 
 
-it("unit - header, snapshot", () => {
-    const tree = renderer.create(
-        <Router>
-            <Header />
-        </Router>
-    ).toJSON();
-    expect(tree).toMatchSnapshot();
+it("unit - header page, snapshot", () => {
+    act(() => {
+        render(
+            <Router>
+                <Header />
+            </Router>
+        , container)
+    })
+    expect(container).toMatchSnapshot();
 })

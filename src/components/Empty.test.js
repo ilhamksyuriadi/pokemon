@@ -1,7 +1,6 @@
 import Empty from './Empty';
-import { unmountComponentAtNode } from 'react-dom';
-import renderer from  'react-test-renderer'
-
+import { render, unmountComponentAtNode } from 'react-dom';
+import { act } from "react-dom/test-utils";
 
 let container = null;
 beforeEach(() => {
@@ -18,6 +17,8 @@ afterEach(() => {
 });
 
 it("unit - empty page, snapshot", () => {
-    const tree = renderer.create(<Empty ></Empty>).toJSON();
-    expect(tree).toMatchSnapshot();
+    act(() => {
+        render(<Empty />, container)
+    })
+    expect(container).toMatchSnapshot();
 })

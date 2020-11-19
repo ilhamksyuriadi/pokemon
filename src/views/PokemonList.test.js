@@ -1,6 +1,6 @@
 import PokemonList from './PokemonList';
-import { unmountComponentAtNode } from 'react-dom';
-import renderer from  'react-test-renderer';
+import { render, unmountComponentAtNode } from 'react-dom';
+import { act } from "react-dom/test-utils";
 import { MockedProvider } from '@apollo/client/testing';
 import { GET_POKEMON_LIST } from '../operations/queries/getPokemonList';
 import { BrowserRouter as Router } from "react-router-dom";
@@ -52,12 +52,14 @@ afterEach(() => {
 });
 
 it("integration - pokemon list, snapshot", () => {
-    const tree = renderer.create(
-        <MockedProvider mock={mocks}>
-            <Router>
-                <PokemonList />
-            </Router>
-        </MockedProvider>
-    ).toJSON();
-    expect(tree).toMatchSnapshot();
+    act(() => {
+        render(
+            <MockedProvider mock={mocks}>
+                <Router>
+                    <PokemonList />
+                </Router>
+            </MockedProvider>
+        ,container)
+    })
+    expect(container).toMatchSnapshot();
 })

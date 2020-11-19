@@ -1,7 +1,6 @@
 import Error from './Error';
-import { unmountComponentAtNode } from 'react-dom';
-import renderer from  'react-test-renderer'
-
+import { render, unmountComponentAtNode } from 'react-dom';
+import { act } from "react-dom/test-utils";
 
 let container = null;
 beforeEach(() => {
@@ -18,6 +17,8 @@ afterEach(() => {
 });
 
 it("unit - error page, snapshot", () => {
-    const tree = renderer.create(<Error ></Error>).toJSON();
-    expect(tree).toMatchSnapshot();
+    act(() => {
+        render(<Error />, container)
+    })
+    expect(container).toMatchSnapshot();
 })

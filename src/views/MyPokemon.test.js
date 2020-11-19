@@ -1,6 +1,6 @@
 import MyPokemon from './MyPokemon';
-import { unmountComponentAtNode } from 'react-dom';
-import renderer from  'react-test-renderer';
+import { render, unmountComponentAtNode } from 'react-dom';
+import { act } from "react-dom/test-utils";
 
 let container = null;
 beforeEach(() => {
@@ -17,6 +17,8 @@ afterEach(() => {
 });
 
 it("integration - my pokemon, snapshot", () => {
-    const tree = renderer.create(<MyPokemon />).toJSON();
-    expect(tree).toMatchSnapshot();
+    act(() => {
+        render(<MyPokemon />,container)
+    })
+    expect(container).toMatchSnapshot();
 })

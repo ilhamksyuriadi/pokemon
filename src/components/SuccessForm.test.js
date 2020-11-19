@@ -1,6 +1,5 @@
 import SuccessForm from './SuccessForm';
 import { render, unmountComponentAtNode } from 'react-dom';
-import renderer from  'react-test-renderer';
 import { act } from "react-dom/test-utils";
 
 let container = null;
@@ -18,11 +17,13 @@ afterEach(() => {
 });
 
 it("unit - success form, snapshot", () => {
-    const pokemon = {
-        id: 1,
-        name: 'Bulbasaur',
-    }
-    const tree = renderer.create(<SuccessForm pokemon={pokemon} />).toJSON();
-    expect(tree).toMatchSnapshot();
+    act(()=> {
+        const pokemon = {
+            name: 'Bulbasaur',
+            imageUrl: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png'
+        }
+        render(<SuccessForm pokemon={pokemon} />,container)
+    })
+    expect(container).toMatchSnapshot();
 })
 

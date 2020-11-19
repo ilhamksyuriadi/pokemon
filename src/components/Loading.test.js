@@ -1,6 +1,6 @@
 import Loading from './Loading';
-import { unmountComponentAtNode } from 'react-dom';
-import renderer from  'react-test-renderer'
+import { render, unmountComponentAtNode } from 'react-dom';
+import { act } from "react-dom/test-utils";
 
 let container = null;
 beforeEach(() => {
@@ -16,8 +16,9 @@ afterEach(() => {
     container = null;
 });
 
-
-it("unit - loading, snapshot", () => {
-    const tree = renderer.create(<Loading msg="loading"></Loading>).toJSON();
-    expect(tree).toMatchSnapshot();
+it("unit - loading page, snapshot", () => {
+    act(() => {
+        render(<Loading />, container)
+    })
+    expect(container).toMatchSnapshot();
 })
