@@ -47,7 +47,6 @@
 .card-img{
     height: 96px;
     width: 96px;
-    aspect-ratio: attr(width) / attr(height);
 }
 
 @keyframes pokemove {
