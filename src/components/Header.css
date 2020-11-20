@@ -38,3 +38,7 @@ nav a{
     color: rgb(182, 182, 182);
     background: rgb(73, 73, 161);
 }
+
+.nav-text{
+    font-size: 1.17em;
+}

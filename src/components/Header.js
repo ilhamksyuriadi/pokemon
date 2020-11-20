@@ -8,10 +8,10 @@ const Header = () => {
             <h1>Pokemon App</h1>
             <nav>
                 <NavLink className="nav-item" exact activeClassName="nav-active" to="/">
-                    <h3>Pokemon List</h3>
+                    <p className="nav-text">Pokemon List</p>
                 </NavLink>
                 <NavLink className="nav-item" exact activeClassName="nav-active" to="/mypokemon">
-                    <h3>My Pokemon</h3>
+                    <p className="nav-text">My Pokemon</p>
                 </NavLink>
             </nav>
         </header>
