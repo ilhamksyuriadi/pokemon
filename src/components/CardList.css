@@ -44,6 +44,12 @@
     background: rgb(226, 96, 96);
 }
 
+.card-img{
+    height: 96px;
+    width: 96px;
+    aspect-ratio: attr(width) / attr(height);
+}
+
 @keyframes pokemove {
     0% {margin-top: 0px;}
     25% {margin-top: -7px;}

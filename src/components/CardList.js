@@ -10,8 +10,8 @@ const CardList = (props) => {
     }
 
     return (
-            <div data-testid="pokemon-card" onClick={handleClick} className="card-layout">
-                <img src={props.image} alt='pokemon' />
+            <div onClick={handleClick} className="card-layout">
+                <img className="card-img" src={props.image} alt='pokemon' />
                 <div className="card-desc">
                     <p>Name: {props.name}</p>
                     {
