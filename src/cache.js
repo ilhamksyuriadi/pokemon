@@ -9,7 +9,7 @@ if (currentPokemons) {
     myPokemon = makeVar([]);
 }
 
-export const pageLoad = makeVar(8)
+export const pageLoad = makeVar(9)
 
 export const cache = new InMemoryCache()
 
